@@ -1,10 +1,32 @@
+buildscript {
+   ext.kotlin_version = '1.0.5'
+
+   repositories {
+     mavenCentral()
+     maven {
+        name 'JFrog OSS snapshot repo'
+        url  'https://oss.jfrog.org/oss-snapshot-local/'
+     }
+     jcenter()
+   }
+
+   dependencies {
+     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+   }
+}
+
+
 apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'idea'
 
 repositories {
     jcenter()
 }
 
 dependencies {
+    compile 'com.sparkjava:spark-core:2.5.2'
+    compile 'org.freemarker:freemarker:2.3.14'
     runtime 'org.antlr:antlr4:4.5.2'
 }
 
